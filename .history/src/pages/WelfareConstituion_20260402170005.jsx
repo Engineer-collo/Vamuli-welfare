@@ -217,7 +217,7 @@ function Constitution() {
           Members leaving voluntarily or by expulsion:
           <ul className="list-disc ml-5 mt-2 space-y-1">
             <li>Will not be refunded contributions already made.</li>
-            <li>This ensures sustainability of welfare funds and that any proposed welfare projects, will directly benefit both remaining members and exiting members.</li>
+            <li>This ensures sustainability of welfare funds and that ongoing welfare projects will directly benefit  both remaining members and exiting members.</li>
           </ul>
         </>
       ),
