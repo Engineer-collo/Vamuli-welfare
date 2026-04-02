@@ -175,7 +175,7 @@ function Constitution() {
       title: "Annual Family Gathering",
       content: (
         <>
-          Every 26th December, families of <span className="font-semibold">Stephen Muhya </span> 
+          Every 26th December, families of <span className="font-semibold">Stephen Muhya</span> 
            and <span className="font-semibold">Manase Likhomba</span> shall gather:
           <ul className="list-disc ml-5 mt-2 space-y-1">
             <li>The gathering includes a communal goat meal and social interaction.</li>
