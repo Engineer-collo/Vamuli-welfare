@@ -125,7 +125,7 @@ function Constitution() {
             <li>The welfare leaders meet within <span className="font-semibold">three (3) working days</span> to evaluate the necessity.</li>
             <li>If approved, an emergency meeting is scheduled for all members.</li>
             <li>Attendance of at least <span className="font-semibold">¾ of members</span> is required for validity.</li>
-            <li>The borrowed money should not exceed that member's savings</li>
+            <li></li>
             <li>During the meeting, the requested loan amount, repayment period, and deadlines are clearly documented and agreed upon.</li>
             <li>Failure to repay the loan as agreed will result in fines, suspension of membership privileges, or expulsion.</li>
           </ul>
