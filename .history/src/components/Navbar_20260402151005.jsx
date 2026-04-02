@@ -40,7 +40,7 @@ function Navbar() {
           </li>
 
           <li>
-            <Link to="/signatories" className="hover:text-gray-200">
+            <Link to="/" className="hover:text-gray-200">
               Signatories
             </Link>
           </li>

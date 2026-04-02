@@ -38,13 +38,6 @@ function Navbar() {
               Contributions
             </Link>
           </li>
-
-          <li>
-            <Link to="/signatories" className="hover:text-gray-200">
-              Signatories
-            </Link>
-          </li>
-
         </ul>
 
         {/* Mobile Menu Button */}

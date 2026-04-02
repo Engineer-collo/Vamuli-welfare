@@ -23,7 +23,7 @@ function App() {
           <Route path="/contributions" element={<ContributionsTable />} />
           <Route path="/about" element={<About />} />
           <Route path="/constitution" element={<WelfareConstituion/>} />
-          <Route path="/signatories" element={<Signatories/>} />
+          <Route path="/constitution" element={<Signatories/>} />
 
 
         </Routes>

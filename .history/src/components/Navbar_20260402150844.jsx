@@ -38,13 +38,6 @@ function Navbar() {
               Contributions
             </Link>
           </li>
-
-          <li>
-            <Link to="/signatories" className="hover:text-gray-200">
-              Signatories
-            </Link>
-          </li>
-
         </ul>
 
         {/* Mobile Menu Button */}
@@ -92,8 +85,8 @@ function Navbar() {
             </li>
 
             <li>
-              <Link to="/signatories" onClick={() => setMenuOpen(false)}>
-                Signatories
+              <Link to="/contributions" onClick={() => setMenuOpen(false)}>
+                Contributions
               </Link>
             </li>
 

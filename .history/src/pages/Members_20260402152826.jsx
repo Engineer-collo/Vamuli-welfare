@@ -25,7 +25,7 @@ const members = [
   { id: 22, name: "Kennedy Alumasa", phone: "0727662866" },
   { id: 23, name: "Pamelah Alumasa", phone: "0728983676" },
   { id: 24, name: "Joseph Anusu", phone: "0795343410" },
-  { id: 25, name: "Mrs Collins Likhomba", phone: "0743250838" },
+  { id: 25, name: "Mr", phone: "0795343410" },
 
 ];
 
