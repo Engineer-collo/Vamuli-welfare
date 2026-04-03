@@ -47,9 +47,9 @@ function LoanForm() {
 
           <div className="text-right text-[10px]">
             <p>Form No: __________</p>
-            <div className="w-16 h-16 border mt-1 flex items-center justify-center">
+            {/* <div className="w-16 h-16 border mt-1 flex items-center justify-center">
               Photo
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -142,7 +142,7 @@ function LoanForm() {
           </p>
 
           <div className="w-20 h-12 border flex items-center justify-center text-[10px]">
-            Stamp
+            Stamp Here
           </div>
         </div>
 
