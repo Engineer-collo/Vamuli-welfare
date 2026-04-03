@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 function Signatories() {
   const members = [
@@ -29,104 +31,97 @@ function Signatories() {
     "Mrs Collins Likhomba"
   ];
 
-  const handlePrint = () => {
-    window.print();
+  const formRef = useRef();
+
+  const handleDownloadPDF = async () => {
+    const canvas = await html2canvas(formRef.current, { scale: 2 });
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF("p", "mm", "a4");
+
+    const imgWidth = 210; // A4 width in mm
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+    pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+    pdf.save("Vamuli-Signatories.pdf");
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-6 bg-white shadow-lg rounded-lg p-6 border 
-                    print:shadow-none print:border-none print:p-4 print:mt-0 print:max-w-full 
-                    print:text-sm print:leading-tight">
+    <div className="max-w-4xl mx-auto mt-4">
 
-      {/* Print Button */}
-      <div className="flex justify-end mb-3 print:hidden">
+      {/* Download PDF Button */}
+      <div className="flex justify-end mb-3">
         <button
-          onClick={handlePrint}
-          className="bg-green-700 text-white px-4 py-1 rounded shadow hover:bg-green-800 text-sm"
+          onClick={handleDownloadPDF}
+          className="bg-blue-700 text-white px-4 py-1 rounded text-sm"
         >
-          Print
+          Download PDF
         </button>
       </div>
 
-      <h1 className="text-2xl font-bold text-center text-green-700 mb-3 print:text-xl">
-        MEMBER SIGNATORIES
-      </h1>
+      {/* Document */}
+      <div
+        ref={formRef}
+        className="bg-white p-4 border border-black text-[11px] leading-tight"
+      >
 
-      <p className="text-gray-700 mb-4 text-center text-sm print:text-xs">
-        This document confirms that all members have read, understood, and agreed
-        to the <span className="font-semibold">Vamuli Welfare Constitution</span>.
-      </p>
+        <h1 className="text-center text-lg font-bold text-green-700 mb-2">
+          MEMBER SIGNATORIES
+        </h1>
 
-      {/* Table */}
-      <table className="w-full border border-gray-300 text-left text-sm print:text-xs">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="border p-1 w-10">No.</th>
-            <th className="border p-1">Full Name</th>
-            <th className="border p-1 w-40">Signature</th>
-          </tr>
-        </thead>
-        <tbody>
-          {members.map((name, index) => (
-            <tr key={index} className="break-inside-avoid">
-              <td className="border p-1">{index + 1}</td>
-              <td className="border p-1">{name}</td>
-              <td className="border p-1">______________</td>
+        <p className="text-center text-[10px] mb-2">
+          This document confirms that all members have read, understood, and agreed
+          to the <span className="font-semibold">Vamuli Welfare Constitution</span>.
+        </p>
+
+        {/* Table */}
+        <table className="w-full border border-gray-300 text-left text-[10px]">
+          <thead>
+            <tr className="bg-gray-100">
+              <th className="border p-1 w-8">No.</th>
+              <th className="border p-1">Full Name</th>
+              <th className="border p-1 w-32">Signature</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {members.map((name, index) => (
+              <tr key={index}>
+                <td className="border p-1">{index + 1}</td>
+                <td className="border p-1">{name}</td>
+                <td className="border p-1">______________</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
-      {/* Officials */}
-      <div className="mt-4">
-        <h2 className="text-lg font-semibold text-green-600 mb-2 print:text-base">
-          APPROVED BY OFFICIALS
-        </h2>
+        {/* Officials */}
+        <div className="mt-2 text-[10px]">
+          <h2 className="font-semibold text-green-600 mb-1">APPROVED BY OFFICIALS</h2>
 
-        <div className="space-y-2 text-sm print:text-xs">
-          <div className="flex justify-between border-b">
-            <span>Chairperson</span>
-            <span>______________</span>
-          </div>
-          <div className="flex justify-between border-b">
-            <span>Secretary</span>
-            <span>______________</span>
-          </div>
-          <div className="flex justify-between border-b">
-            <span>Treasurer</span>
-            <span>______________</span>
-          </div>
-          <div className="flex justify-between border-b">
-            <span>Coordinator</span>
-            <span>______________</span>
+          <div className="space-y-1">
+            <div className="flex justify-between border-b">
+              <span>Chairperson</span>
+              <span>______________</span>
+            </div>
+            <div className="flex justify-between border-b">
+              <span>Secretary</span>
+              <span>______________</span>
+            </div>
+            <div className="flex justify-between border-b">
+              <span>Treasurer</span>
+              <span>______________</span>
+            </div>
+            <div className="flex justify-between border-b">
+              <span>Coordinator</span>
+              <span>______________</span>
+            </div>
           </div>
         </div>
+
+        {/* Footer */}
+        <p className="mt-2 text-center text-[9px]">
+          Official record of agreement by all members.
+        </p>
       </div>
-
-      {/* Footer */}
-      <p className="mt-4 text-xs text-gray-600 text-center">
-        Official record of agreement by all members.
-      </p>
-
-      {/* Print CSS */}
-      <style>
-        {`
-          @media print {
-            @page {
-              size: A4;
-              margin: 10mm;
-            }
-
-            body {
-              -webkit-print-color-adjust: exact;
-            }
-
-            table {
-              page-break-inside: avoid;
-            }
-          }
-        `}
-      </style>
     </div>
   );
 }

@@ -9,6 +9,7 @@ import ContributionsTable from "./pages/ContributionsTable";
 import WelfareConstituion from "./pages/WelfareConstituion";
 import About from "./pages/About";
 import Signatories from "./pages/Signatories";
+import LoanForm from "./pages/LoanForm";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/constitution" element={<WelfareConstituion/>} />
           <Route path="/signatories" element={<Signatories/>} />
+          <Route path="/loan" element={<LoanForm/>} />
 
 
         </Routes>
