@@ -44,11 +44,19 @@ function Navbar() {
               Signatories
             </Link>
           </li>
+
           <li>
             <Link to="/loan" className="hover:text-gray-200">
               Loan Form
             </Link>
           </li>
+
+          <li>
+            <Link to="/certificates" className="hover:text-gray-200">
+              Membership Certificate
+            </Link>
+          </li>
+
 
 
 
@@ -107,6 +115,12 @@ function Navbar() {
             <li>
               <Link to="/loan" onClick={() => setMenuOpen(false)}>
                 Loan Form
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/certificates" onClick={() => setMenuOpen(false)}>
+                Membership Certificate
               </Link>
             </li>
 

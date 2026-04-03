@@ -10,6 +10,7 @@ import WelfareConstituion from "./pages/WelfareConstituion";
 import About from "./pages/About";
 import Signatories from "./pages/Signatories";
 import LoanForm from "./pages/LoanForm";
+import MembershipCertificates from "./pages/MembershipCertificates";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/constitution" element={<WelfareConstituion/>} />
           <Route path="/signatories" element={<Signatories/>} />
           <Route path="/loan" element={<LoanForm/>} />
+          <Route path="/certificates" element={<MembershipCertificates/>} />
 
 
         </Routes>
