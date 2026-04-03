@@ -30,10 +30,17 @@ This name reflects the heritage, shared values, and collaborative goals of the f
     {
       title: "Membership",
       content: `Membership is open exclusively to individuals who are recognized members of the Muhya or Likhomba families:
-- Must actively participate in welfare activities.
-- Must commit to regular monthly contributions.
-- Must be approved by the leadership and endorsed by at least two existing members.
-- Membership can be suspended or terminated for non-compliance with the constitution.`
+    
+    - Must actively participate in welfare activities.
+    - Must commit to regular monthly contributions.
+    - Must be approved by the leadership and endorsed by at least two existing members.
+    - Membership can be suspended or terminated for non-compliance with the constitution.
+    
+    Admission Requirements for New Members:
+    - A non-refundable registration fee of Ksh. 500 must be paid upon joining.
+    - Any new member shall be required to pay all accumulated contributions equivalent to the total contributions made by existing active members, in order to attain equal financial standing within the welfare.
+    
+    Failure to meet these financial obligations shall result in denial or suspension of membership rights until full compliance is achieved.`
     },
     {
       title: "Monthly Contributions",
@@ -201,9 +208,9 @@ Leadership elections shall be held every 2 years with ¾ member approval for new
       <div className="flex justify-end mb-4">
         <button
           onClick={handleDownloadPDF}
-          className="bg-blue-700 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-800"
+          className="bg-green-700 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-800"
         >
-          Download Constitution PDF
+          Download Constitution
         </button>
       </div>
 

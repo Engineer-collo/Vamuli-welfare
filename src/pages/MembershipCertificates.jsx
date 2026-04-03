@@ -38,12 +38,12 @@ function MembershipCertificates() {
 
     const membershipId = `VAM-${String(member.id).padStart(2, "0")}`;
 
-    // --- Border Frame ---
+    // --- Border ---
     pdf.setLineWidth(1.2);
     pdf.setDrawColor(0, 128, 0);
     pdf.rect(margin, margin, pageWidth - margin * 2, pageHeight - margin * 2);
 
-    // --- Watermark (Centered & Clean) ---
+    // --- Watermark ---
     pdf.saveGraphicsState?.();
     pdf.setFontSize(45);
     pdf.setTextColor(230, 230, 230);
@@ -54,10 +54,23 @@ function MembershipCertificates() {
     });
     pdf.restoreGraphicsState?.();
 
-    let y = margin + 20;
+    // --- Logo ---
+    const logoWidth = 40;
+    const logoHeight = 40;
+
+    pdf.addImage(
+      "/vamuli-logo.png",
+      "PNG",
+      pageWidth / 2 - logoWidth / 2,
+      margin + 5,
+      logoWidth,
+      logoHeight
+    );
+
+    let y = margin + 55;
 
     // --- Header ---
-    pdf.setFontSize(26);
+    pdf.setFontSize(24);
     pdf.setTextColor(0, 100, 0);
     pdf.setFont(undefined, "bold");
     pdf.text("Vamuli Welfare", pageWidth / 2, y, { align: "center" });
@@ -99,38 +112,34 @@ function MembershipCertificates() {
     });
 
     // --- Signatures ---
-    y += 25;
+    y += 18;
     pdf.setLineWidth(0.5);
-    pdf.line(margin + 20, y, pageWidth / 2 - 10, y);
-    pdf.line(pageWidth / 2 + 10, y, pageWidth - margin - 20, y);
+    pdf.line(margin + 25, y, pageWidth / 2 - 15, y);
+    pdf.line(pageWidth / 2 + 15, y, pageWidth - margin - 25, y);
 
     y += 5;
     pdf.setFontSize(10);
-    pdf.text("Chairperson", (margin + pageWidth / 2 - 10) / 2, y, {
+    pdf.text("Chairperson", (margin + pageWidth / 2 - 15) / 2, y, {
       align: "center",
     });
     pdf.text(
-      (pageWidth / 2 + 10 + pageWidth - margin - 20) / 2,
+      (pageWidth / 2 + 15 + pageWidth - margin - 25) / 2,
       y,
       "Secretary",
       { align: "center" }
     );
 
-    // --- Bottom-Right Seal (Professional Stamp) ---
-    const sealRadius = 25;
-    const sealX = pageWidth - margin - sealRadius - 5;
-    const sealY = pageHeight - margin - sealRadius - 5;
+    // --- Official Stamp ---
+    const stampSize = 50;
 
-    pdf.setDrawColor(0, 128, 0);
-    pdf.setLineWidth(0.8);
-    pdf.setFillColor(200, 255, 200);
-    pdf.circle(sealX, sealY, sealRadius, "FD");
-
-    pdf.setFontSize(9);
-    pdf.setTextColor(0, 100, 0);
-    pdf.text("VAMULI", sealX, sealY - 4, { align: "center" });
-    pdf.text("WELFARE", sealX, sealY, { align: "center" });
-    pdf.text("OFFICIAL", sealX, sealY + 4, { align: "center" });
+    pdf.addImage(
+      "/vamuli-stamp.png",
+      "PNG",
+      pageWidth - margin - stampSize,
+      pageHeight - margin - stampSize,
+      stampSize,
+      stampSize
+    );
 
     pdf.save(`${membershipId}-${member.name}.pdf`);
   };

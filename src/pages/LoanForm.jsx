@@ -20,11 +20,11 @@ function LoanForm() {
   return (
     <div className="max-w-4xl mx-auto mt-4">
 
-      {/* ONLY PDF BUTTON */}
+      {/* BUTTON */}
       <div className="flex justify-end mb-3">
         <button
           onClick={handleDownloadPDF}
-          className="bg-blue-700 text-white px-3 py-1 rounded text-sm"
+          className="bg-green-700 text-white px-3 py-1 rounded text-sm"
         >
           Download PDF
         </button>
@@ -33,32 +33,43 @@ function LoanForm() {
       {/* FORM */}
       <div
         ref={formRef}
-        className="bg-white p-4 border border-black text-[12px] leading-tight"
+        className="relative bg-white p-4 border border-black text-[12px] leading-tight overflow-hidden"
       >
 
+        {/* WATERMARK */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <p className="text-[60px] font-bold text-gray-200 rotate-12 opacity-30">
+            VAMULI WELFARE
+          </p>
+        </div>
+
         {/* HEADER */}
-        <div className="flex justify-between items-center border-b pb-2 mb-2">
-          <div>
-            <h1 className="text-lg font-bold text-green-700">
-              VAMULI WELFARE
-            </h1>
-            <p className="text-[10px]">Unity • Support • Development</p>
+        <div className="flex justify-between items-center border-b pb-2 mb-2 relative z-10">
+          <div className="flex items-center gap-2">
+            <img
+              src="/vamuli-logo.png"
+              alt="logo"
+              className="w-10 h-10 object-contain"
+            />
+            <div>
+              <h1 className="text-lg font-bold text-green-700">
+                VAMULI WELFARE
+              </h1>
+              <p className="text-[10px]">Unity • Support • Development</p>
+            </div>
           </div>
 
           <div className="text-right text-[10px]">
             <p>Form No: __________</p>
-            {/* <div className="w-16 h-16 border mt-1 flex items-center justify-center">
-              Photo
-            </div> */}
           </div>
         </div>
 
-        <h2 className="text-center font-bold text-sm underline mb-2">
+        <h2 className="text-center font-bold text-sm underline mb-2 relative z-10">
           LOAN AGREEMENT FORM
         </h2>
 
         {/* BORROWER + LOAN */}
-        <div className="grid grid-cols-2 gap-2 mb-2">
+        <div className="grid grid-cols-2 gap-2 mb-2 relative z-10">
           <div className="border p-2">
             <p className="font-semibold">Borrower Details</p>
             <p>Name: ________________________</p>
@@ -77,7 +88,7 @@ function LoanForm() {
         </div>
 
         {/* GUARANTORS */}
-        <div className="border p-2 mb-2">
+        <div className="border p-2 mb-2 relative z-10">
           <p className="font-semibold">Guarantors</p>
 
           <div className="grid grid-cols-2 gap-2">
@@ -102,7 +113,7 @@ function LoanForm() {
         </div>
 
         {/* CONDITIONS */}
-        <div className="border p-2 mb-2">
+        <div className="border p-2 mb-2 relative z-10">
           <p className="font-semibold">Conditions</p>
           <ul className="list-disc ml-4 text-[11px]">
             <li>Loan must not exceed savings.</li>
@@ -117,7 +128,7 @@ function LoanForm() {
         </div>
 
         {/* DECLARATION + APPROVAL */}
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-2 gap-2 relative z-10">
           <div className="border p-2">
             <p className="font-semibold">Declaration</p>
             <p className="text-[11px]">
@@ -135,15 +146,18 @@ function LoanForm() {
           </div>
         </div>
 
-        {/* FOOTER */}
-        <div className="flex justify-between items-center mt-2">
+        {/* FOOTER + STAMP */}
+        <div className="flex justify-between items-center mt-4 relative z-10">
           <p className="text-[10px]">
             Official & legally binding document
           </p>
 
-          <div className="w-20 h-12 border flex items-center justify-center text-[10px]">
-            Stamp Here
-          </div>
+          {/* REAL STAMP */}
+          <img
+            src="/vamuli-stamp.png"
+            alt="stamp"
+            className="w-24 h-24 object-contain opacity-90"
+          />
         </div>
 
       </div>

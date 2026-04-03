@@ -8,27 +8,32 @@ function Navbar() {
     <nav className="bg-green-700 text-white shadow-md">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
 
-        {/* Logo and Tagline */}
-        <div className="flex flex-col items-center md:items-start">
-          <h1 className="text-xl font-bold">
-            <Link to="/">Vamuli Welfare</Link>
-          </h1>
-          <span className="text-xs md:text-sm text-green-200 mt-1">
-            .Unity .Support .Development
-          </span>
+        {/* Logo + Name + Tagline */}
+        <div className="flex items-center gap-3">
+          
+          {/* LOGO */}
+          <img
+            src="/vamuli-logo.png"
+            alt="Vamuli Logo"
+            className="w-10  rounded h-10 object-contain"
+          />
+
+          {/* NAME + TAGLINE */}
+          <div className="flex flex-col">
+            <h1 className="text-xl font-bold leading-tight">
+              <Link to="/">Vamuli Welfare</Link>
+            </h1>
+            <span className="text-xs md:text-sm text-green-200 tracking-wide">
+              Unity • Support • Development
+            </span>
+          </div>
         </div>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6 text-sm mt-3 md:mt-0">
-          <li>
-            <Link to="/" className="hover:text-gray-200">Home</Link>
-          </li>
-          <li>
-            <Link to="/about" className="hover:text-gray-200">About</Link>
-          </li>
-          <li>
-            <Link to="/members" className="hover:text-gray-200">Members</Link>
-          </li>
+          <li><Link to="/" className="hover:text-gray-200">Home</Link></li>
+          <li><Link to="/about" className="hover:text-gray-200">About</Link></li>
+          <li><Link to="/members" className="hover:text-gray-200">Members</Link></li>
           <li>
             <Link to="/constitution" className="hover:text-gray-200">
               Welfare-Constitution
@@ -54,7 +59,7 @@ function Navbar() {
           </li>
         </ul>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Button */}
         <button
           className="md:hidden text-white text-2xl mt-2"
           onClick={() => setMenuOpen(!menuOpen)}
