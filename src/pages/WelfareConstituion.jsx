@@ -163,6 +163,14 @@ Leadership elections shall be held every 2 years with ¾ member approval for new
       content: `- The Welfare operates in accordance with Kenyan law.
 - Constitution becomes legally binding upon approval by at least ¾ of registered members.
 - All members and leadership shall uphold legal obligations, including tax compliance if applicable.`
+    },
+    {
+      title: "Payment Policy",
+      content: `- The Treasurer shall not accept any cash contributions under any circumstances.
+    - All financial contributions must be made exclusively through M-Pesa or other officially approved digital payment channels.
+    - Every member is responsible for ensuring they retain proof of payment for their records.
+    - Digital transactions shall serve as the official and verifiable record of payment in case of any future disputes or discrepancies.
+    - Any cash payments made contrary to this policy shall not be recognized or refunded by the Welfare.`
     }
   ];
 
